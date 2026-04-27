@@ -8,7 +8,9 @@ import {
   AiOutlineBarChart,
   AiOutlineSetting,
   AiOutlineClose,
+  AiOutlineLogout,
 } from 'react-icons/ai';
+import { useAuth } from '../../context/AuthContext';
 
 const links = [
   { label: 'Dashboard', path: '/', icon: AiOutlineDashboard },
@@ -21,6 +23,8 @@ const links = [
 ];
 
 export default function Sidebar({ isOpen, onClose }) {
+  const { logout } = useAuth();
+
   return (
     <>
       {/* Mobile overlay */}
@@ -69,6 +73,13 @@ export default function Sidebar({ isOpen, onClose }) {
             );
           })}
         </nav>
+        <button
+          onClick={() => { logout(); onClose(); }}
+          className="mt-6 flex w-full items-center gap-3 rounded-3xl px-4 py-3 text-sm font-medium text-red-400 transition hover:bg-slate-800 hover:text-red-300"
+        >
+          <AiOutlineLogout size={18} />
+          Logout
+        </button>
       </aside>
 
       {/* Desktop sidebar */}
