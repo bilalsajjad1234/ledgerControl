@@ -1,0 +1,10 @@
+.env
+.env.production
+node_modules/
+frontend/node_modules/
+dist/
+build/
+.DS_Store
+*.log
+.vscode/
+.idea/
